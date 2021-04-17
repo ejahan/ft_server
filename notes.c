@@ -22,3 +22,27 @@ https://github.com/iciamyplant/ft_server
 
 
 https://github.com/pmouhali/ft_server
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// ~/42toolbox
+./init_docker.sh
+
+	// ~/desktop/ft_server
+docker build -t test .				// creer conteneur avec nom (-t)
+docker run -it --rm -p 80:80 test	
+docker ps -a						// == ls -a
+docker ps							// == ls
+docker images						// liste des images
+docker rmi 9e4982291206				// rm l'image 9e4982291206
+exit 								// quitte le conteneur
