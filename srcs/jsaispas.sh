@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 15:46:54 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/19 12:04:40 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/19 17:31:38 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,5 +22,7 @@ cp -r wordpress /var/www/localhost/wordpress
 
 
 bash
+
+
 
 # wget http://fr.wordpress.org/latest-fr_FR.tar.gz
