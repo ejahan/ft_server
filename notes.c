@@ -26,11 +26,7 @@ https://github.com/pmouhali/ft_server
 
 
 
-
-
-
-
-
+ampur
 
 
 
@@ -46,3 +42,5 @@ docker ps							// == ls
 docker images						// liste des images
 docker rmi 9e4982291206				// rm l'image 9e4982291206
 exit 								// quitte le conteneur
+
+// http://your_server_ip

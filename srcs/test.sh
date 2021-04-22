@@ -1,27 +1,23 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
+#    test.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/17 15:47:25 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/22 15:32:43 by ejahan           ###   ########.fr        #
+#    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
+#    Updated: 2021/04/22 17:35:19 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM debian:buster-slim
+mkdir var/www/localhost
+cp ./test.php /var/www/localhost
+mv ./localhost /etc/nginx/sites-available
+ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/
 
-RUN apt-get -y update && apt-get -y install mariadb-server mariadb-client \
-			wget \
-			nginx \
-			openssl
+service nginx start
+service php7.3-fpm start
+service mysql start
+sleep infinity
 
-RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysql php-common php7.3-cli \
-			php7.3-common php7.3-json php7.3-opcache php7.3-readline
-
-COPY ./srcs/ ./root/
-
-WORKDIR /root/
-
-ENTRYPOINT ["bash", "test.sh"]
+bash
