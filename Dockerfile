@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 15:47:25 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/22 15:32:43 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/22 17:57:40 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ RUN apt-get -y update && apt-get -y install mariadb-server mariadb-client \
 			openssl
 
 RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysql php-common php7.3-cli \
-			php7.3-common php7.3-json php7.3-opcache php7.3-readline
+			php7.3-common php7.3-json php7.3-opcache php7.3-readline \
+			php-json php-mbstring
 
 COPY ./srcs/ ./root/
 
