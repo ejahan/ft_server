@@ -1,76 +1,3 @@
-https://www.redhat.com/fr/topics/containers/what-is-docker
-https://www.lebigdata.fr/docker-definition
-https://www.wanadev.fr/23-tuto-docker-comprendre-docker-partie1/
-
-https://forhjy.medium.com/42-ft-server-how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-2-4042adb2ab2c
-https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10
-https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
-
-
-https://medium.com/@migueldoctor/run-mysql-phpmyadmin-locally-in-3-steps-using-docker-74eb735fa1fc
-https://manpages.debian.org/buster/docker.io/Dockerfile.5.en.html
-https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-your-first-docker-application-cc03de9b639f/
-https://github.com/alexandregv/42toolbox
-https://putaindecode.io/articles/les-dockerfiles/
-https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
-https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
-https://forhjy.medium.com/42-ft-server-how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-2-4042adb2ab2c
-https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10
-https://openclassrooms.com/fr/courses/4425101-deployez-une-application-django/4688553-utilisez-le-serveur-http-nginx
-https://github.com/iciamyplant/ft_server
-
-
-
-https://github.com/pmouhali/ft_server
-
-
-// 10.12.3.16
-
-ampur
-
-
-
-
-	// ~/42toolbox
-./init_docker.sh
-
-	// ~/desktop/ft_server
-docker build -t test .				// creer conteneur avec nom (-t)
-docker run -it --rm -p 80:80 test	
-docker ps -a						// == ls -a
-docker ps							// == ls
-docker images						// liste des images
-docker rmi 9e4982291206				// rm l'image 9e4982291206
-exit 								// quitte le conteneur
-
-// http://your_server_ip
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-// tar xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-// mv phpMyAdmin-4.9.0.1-all-languages var/www/localhost/phpmyadmin
-mv ./config.inc.php var/www/localhost/phpmyadmin
-// chmod 660 /var/www/l/ocalhost/phpmyadmin/config.inc.php
-// chown -R www-data:www-data /var/www/localhost/phpmyadmin
-// service php7.3-fpm start
-echo "GRANT ALL ON *.* TO 'emma'@'localhost' IDENTIFIED BY '123'" | mysql -u root
-echo "FLUSH PRIVILEGES;" | mysql -u root
-
-
-
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
@@ -87,7 +14,7 @@ echo "FLUSH PRIVILEGES;" | mysql -u root
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
  */
-$cfg['blowfish_secret'] = '$2a$07$EJooQ7FWQIpYWJAMqd0mq.eRnrTTAkqpIwEv1InrJ8q0KMfAK0WLi'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = 'NIHB58z5xsxgyedljiG3p[2,LfBbRQkF'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
 /**
  * Servers configuration
@@ -103,17 +30,17 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 /**
  * phpMyAdmin configuration storage settings.
  */
 
 /* User used to manipulate with storage */
-// $cfg['Servers'][$i]['controlhost'] = '';
+$cfg['Servers'][$i]['controlhost'] = 'localhost';
 // $cfg['Servers'][$i]['controlport'] = '';
-$cfg['Servers'][$i]['controluser'] = 'root';
-$cfg['Servers'][$i]['controlpass'] = '';
+$cfg['Servers'][$i]['controluser'] = 'pma';
+$cfg['Servers'][$i]['controlpass'] = 'pmapass';
 
 /* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
