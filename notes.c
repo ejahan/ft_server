@@ -225,3 +225,67 @@ $cfg['SaveDir'] = '';
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
+
+
+
+
+
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	# listen 443 ssl;
+	# listen [::]:443 ssl;
+
+#	ssl_certificate /etc/nginx/ssl/localhost.pem;
+#	ssl_certificate_key /etc/nginx/ssl/localhost.key;
+	root /var/www/localhost;
+
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /{
+		try_files $uri $uri/ =404;
+		# autoindex on;
+	}
+	# location ~ \.php$ {
+	# 	include snippets/fastcgi-php.conf;
+	# 	fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+	# }
+}
+
+
+
+
+
+
+server {
+
+	listen 80;
+	listen [::]:80;
+
+#	listen 443 ssl;
+#	listen [::]:443 ssl;
+
+#	ssl_certificate /etc/.mkcert/localhost.pem;
+#	ssl_certificate_key /etc/.mkcert/localhost-key.pem;
+
+	root /var/www/html;
+
+#	autoindex on;
+
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name localhost;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+	}
+}
