@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 15:47:25 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/23 16:36:02 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/25 15:22:00 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,3 +26,7 @@ COPY ./srcs/ ./root/
 WORKDIR /root/
 
 ENTRYPOINT ["bash", "test.sh"]
+
+EXPOSE 80
+
+EXPOSE 443

@@ -319,3 +319,18 @@ define('AUTH_SALT',        'O*e G:QMwY=U96/t8|C$:?:?Q*91|,|BonW0#->x2j0i{t1BJ) }
 define('SECURE_AUTH_SALT', 'iJD*ekt&Zp6bU-Qjmbv -vE;w},W-@kesghZ$>o@;`x%Sm5t4,N2bzT&ebqiRx4|');
 define('LOGGED_IN_SALT',   'g|&^O-]cq{Y7(Vb2YqEaJ|[Z #g(#mHv]5Wr-y)76k6t)h|d#E5kJ -`vByLDNsF');
 define('NONCE_SALT',       ';DnF3zm]aj21(hQ=JVjg$wMBrF-i,m(?S?!#`s}LmB~?%o,k5&,6 k +O+?xqVRf');
+
+
+define( 'AUTH_KEY',         'put your unique phrase here' );
+define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
+define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
+define( 'NONCE_KEY',        'put your unique phrase here' );
+define( 'AUTH_SALT',        'put your unique phrase here' );
+define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
+define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
+define( 'NONCE_SALT',       'put your unique phrase here' );
+
+
+
+
+

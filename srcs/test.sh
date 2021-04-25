@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/25 12:02:02 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/25 15:54:07 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,28 +19,29 @@ ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx start
 
     # certificat ssl
+mkdir /etc/.mkcert
+cd /etc/.mkcert
+wget -O mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.2.0/mkcert-v1.2.0-linux-amd64
+chmod +x mkcert
+apt-get install libnss3-tools
+./mkcert -install
+./mkcert localhost
 
     # php
 service php7.3-fpm start
 
     # MariaDB
-# echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql -u root
-# echo "GRANT ALL ON wordpress.* TO 'wordpress_user'@'localhost' IDENTIFIED BY 'password';" | mysql -u root
 service mysql start
-echo "CREATE DATABASE wordpress;" | mysql -u root
-echo "CREATE USER 'user'@'%';" | mysql -u root
-echo "GRANT ALL ON wordpress.* TO 'user'@'%' WITH GRANT OPTION;" | mysql -u root
+echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql -u root
+echo "GRANT ALL ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY 'password';" | mysql -u root
 echo "FLUSH PRIVILEGES;" | mysql -u root
 
     # phpMyAdmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
 tar -zxvf phpMyAdmin-4.9.0.1-all-languages.tar.gz
 mv phpMyAdmin-4.9.0.1-all-languages /var/www/html/phpMyAdmin
-rm /var/www/htlm/phpMyAdmin/config.sample.inc.php
-mv ./config.inc.php /var/www/html/phpMyAdmin/
-# echo "CREATE DATABASE wordpress;" | mysql -u root
-# echo "GRANT ALL ON *.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass'" | mysql -u root
-# echo "FLUSH PRIVILEGES;" | mysql -u root
+rm /var/www/html/phpMyAdmin/config.sample.inc.php
+cp /root/config.inc.php /var/www/html/phpMyAdmin/
 
     # wordpress
 wget https://wordpress.org/latest.tar.gz
