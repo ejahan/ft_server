@@ -1,32 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
+#    auto_index.sh                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/17 15:47:25 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/25 17:42:47 by ejahan           ###   ########.fr        #
+#    Created: 2021/04/17 15:53:10 by ejahan            #+#    #+#              #
+#    Updated: 2021/04/25 17:26:32 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM debian:buster-slim
-
-RUN apt-get -y update && apt-get -y install mariadb-server mariadb-client \
-			wget \
-			nginx \
-			openssl
-
-RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysql php-common php7.3-cli \
-			php7.3-common php7.3-json php7.3-opcache php7.3-readline \
-			php-json php-mbstring
-
-COPY ./srcs/ ./root/
-
-WORKDIR /root/
-
-ENTRYPOINT ["bash", "test.sh"]
-
-EXPOSE 80
-
-EXPOSE 443
+rm /etc/nginx/sites-available/*
+mv ./default_off /etc/nginx/sites-available
+ln -s /etc/nginx/sites-available/default_off /etc/nginx/sites-enabled/
+service nginx restart

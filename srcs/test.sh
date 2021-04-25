@@ -6,21 +6,22 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/25 15:54:07 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/25 17:40:47 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-mv ./test-php.php /var/www/html
-mv ./test.php /var/www/html
-mv ./info.php /var/www/html
+# mv ./test-php.php /var/www/html
+# mv ./test.php /var/www/html
+# mv ./info.php /var/www/html
 rm /etc/nginx/sites-available/*
 mv ./default /etc/nginx/sites-available
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx start
 
     # certificat ssl
-mkdir /etc/.mkcert
-cd /etc/.mkcert
+cd /etc
+mkdir .mkcert
+cd .mkcert
 wget -O mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.2.0/mkcert-v1.2.0-linux-amd64
 chmod +x mkcert
 apt-get install libnss3-tools
@@ -48,7 +49,7 @@ wget https://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
 rm ./wordpress/wp-config-sample.php
 mv ./wordpress/ /var/www/html
-mv /root/wp-config.php /var/www/html/wordpress
+cp /root/wp-config.php /var/www/html/wordpress
 
 chmod 755 /var/www/*
 chown -R www-data:www-data /var/www/html/*
