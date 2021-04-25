@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/24 18:15:51 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/25 12:02:02 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,18 +38,16 @@ tar -zxvf phpMyAdmin-4.9.0.1-all-languages.tar.gz
 mv phpMyAdmin-4.9.0.1-all-languages /var/www/html/phpMyAdmin
 rm /var/www/htlm/phpMyAdmin/config.sample.inc.php
 mv ./config.inc.php /var/www/html/phpMyAdmin/
-echo "CREATE DATABASE wordpress;" | mysql -u root
-echo "GRANT ALL ON *.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass'" | mysql -u root
-echo "FLUSH PRIVILEGES;" | mysql -u root
+# echo "CREATE DATABASE wordpress;" | mysql -u root
+# echo "GRANT ALL ON *.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass'" | mysql -u root
+# echo "FLUSH PRIVILEGES;" | mysql -u root
 
-    # wordpress  -------->>>>>>> CA MARCHE PAAAAAAAAAAS
-cd /tmp
+    # wordpress
 wget https://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
-rm /tmp/wordpress/wp-config-sample.php
-cp /root/wp-config.php /var/www/html
-cp -a /tmp/wordpress/. /var/www/html
-              # <<<<<<<<<<---------
+rm ./wordpress/wp-config-sample.php
+mv ./wordpress/ /var/www/html
+mv /root/wp-config.php /var/www/html/wordpress
 
 chmod 755 /var/www/*
 chown -R www-data:www-data /var/www/html/*
