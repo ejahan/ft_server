@@ -6,27 +6,30 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/25 17:40:47 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/26 14:29:32 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # mv ./test-php.php /var/www/html
 # mv ./test.php /var/www/html
 # mv ./info.php /var/www/html
+mv ./todolist.php /var/www/html
 rm /etc/nginx/sites-available/*
 mv ./default /etc/nginx/sites-available
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-service nginx start
+# service nginx start
 
-    # certificat ssl
+# certificat ssl
 cd /etc
 mkdir .mkcert
 cd .mkcert
 wget -O mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.2.0/mkcert-v1.2.0-linux-amd64
 chmod +x mkcert
-apt-get install libnss3-tools
+apt-get -y install libnss3-tools
 ./mkcert -install
 ./mkcert localhost
+
+cd /root
 
     # php
 service php7.3-fpm start
