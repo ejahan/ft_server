@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 15:47:25 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/26 14:18:20 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/27 10:38:43 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,5 +27,5 @@ WORKDIR /root/
 
 ENTRYPOINT ["bash", "test.sh"]
 
-EXPOSE 80
-EXPOSE 443
+# EXPOSE 80
+# EXPOSE 443

@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 15:29:24 by ejahan            #+#    #+#              #
-#    Updated: 2021/04/26 14:29:32 by ejahan           ###   ########.fr        #
+#    Updated: 2021/04/26 15:26:28 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 # mv ./info.php /var/www/html
 mv ./todolist.php /var/www/html
 rm /etc/nginx/sites-available/*
-mv ./default /etc/nginx/sites-available
+cp ./default /etc/nginx/sites-available
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 # service nginx start
 
