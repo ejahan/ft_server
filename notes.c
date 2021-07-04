@@ -47,7 +47,7 @@ exit 								// quitte le conteneur
 
 
 
-
+docker rm $(docker ps -a -q)
 
 
 
@@ -329,4 +329,20 @@ define( 'AUTH_SALT',        'put your unique phrase here' );
 define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
 define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
 define( 'NONCE_SALT',       'put your unique phrase here' );
+
+
+
+
+
+
+
+
+
+
+service nginx stop && sudo chmod 666 /var/run/docker.sock
+sudo docker build -t test .
+sudo docker run -p 80:80 -p 443:443 -ti test
+// sudo docker stop test
+
+
 
